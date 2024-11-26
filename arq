@@ -1,0 +1,51 @@
+programa
+{
+	inclua biblioteca Arquivos --> a
+
+	cadeia linha = ""
+	inteiro arq = a.abrir_arquivo("./clientes2.txt", a.MODO_LEITURA)
+
+	
+	funcao inicio()
+	{
+		um()
+		dois()
+		tres()	
+	}
+
+	funcao um()
+	{
+		enquanto(nao a.fim_arquivo(arq))
+		{
+			linha = a.ler_linha(arq)
+			escreva(linha, "\n")
+		}
+
+		a.fechar_arquivo(arq)
+	}
+
+	funcao dois()
+	{
+		arq = a.abrir_arquivo("./clientes2.txt", a.MODO_ACRESCENTAR)
+
+		cadeia nome, data, cidade, estado
+		cadeia info_geral = ""
+
+		escreva("\nInsira o seu nome completo:")
+		leia(nome)
+
+		escreva("\nInsira a sua data de nascimento:")
+		leia(data)
+
+		escreva("\nInsira a sua cidade:")
+		leia(cidade)
+
+		escreva("\nInsira o seu estado:")
+		leia(estado)
+
+		linha = nome + " ; " + data + " ; " + cidade + " ; " + estado
+
+		a.escrever_linha("\n", arq)
+		a.escrever_linha(linha, arq)
+	}
+}
